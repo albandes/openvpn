@@ -1,0 +1,19 @@
+TITLE,OpenVPN 2.4.11 x86_64-redhat-linux-gnu [Fedora EPEL patched] [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on Apr 21 2021
+
+TIME,Wed May  4 21:24:34 2022,1651710274
+
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID
+
+CLIENT_LIST,albandes,179.189.138.0:57112,10.8.0.2,,4177,3828,Wed May  4 21:24:11 2022,1651710251,UNDEF,3,0
+CLIENT_LIST,server-mysql,172.31.59.150:46268,10.8.0.50,,129760,140060,Wed May  4 21:06:08 2022,1651709168,UNDEF,2,0
+CLIENT_LIST,quintana,177.22.164.125:50560,10.8.0.4,,138949,141770,Wed May  4 21:06:03 2022,1651709163,UNDEF,0,0
+
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.4,quintana,177.22.164.125:50560,Wed May  4 21:24:33 2022,1651710273
+ROUTING_TABLE,10.8.0.50,server-mysql,172.31.59.150:46268,Wed May  4 21:24:33 2022,1651710273
+ROUTING_TABLE,10.8.0.2,albandes,179.189.138.0:57112,Wed May  4 21:24:14 2022,1651710254
+
+
+
+GLOBAL_STATS,Max bcast/mcast queue length,3
+END
