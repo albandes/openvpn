@@ -2,7 +2,7 @@
 
 First off, thank you for considering contributing to Henry Class. Is a mature project, but it continues to actively invite maintainers. You can help out a project that is used in a lot of places on the web.
 
-# Contributing to Henry Class
+# Contributing to Openvpn Class
 
 Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
