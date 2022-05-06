@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/workdir/scripts/monitoring
+    owner: apache
+    group: apache
+permissions:
+  - object: /
+    pattern: "**"
+    owner: apache
+    group: apache
+    mode: 764
+    type:
+      - file    
+  - object: /
+    owner: apache
+    group: apache
+    mode: 764
+    type:
+      - directory
+      
