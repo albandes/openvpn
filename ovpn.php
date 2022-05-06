@@ -136,6 +136,10 @@ class ovpn
                 throw new Exception('Error: Status File not found.');
             }
             
+            if ( !is_readable($this->_statusFile) ) {
+                throw new Exception('Error: Status File is not readable.');
+            }
+
             $file = fopen($this->_statusFile, 'r');
 
             while (($line = fgetcsv($file)) !== false)
