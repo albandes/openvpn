@@ -20,7 +20,6 @@ require 'vendor/autoload.php';
  * @license GNU License
  *
  */
- 
 class ovpn
 {
 
