@@ -128,34 +128,49 @@ class ovpn
     {
 
         date_default_timezone_set($this->_timezone);
-        $file = fopen($this->_statusFile, 'r');
 
-        while (($line = fgetcsv($file)) !== false)
+        try
         {
-          $data[] = $line;
-        }
-        fclose($file);
-        
-        $aRet = array();
-        $i=0;
-        foreach ($data as $row) {
+            $fileName = 'uploads/Team/img/'.$team_id.'.png';
             
-            if($row[0] == 'ROUTING_TABLE'){
-                $ip = $row[1];
-                $user = $row[2];
-                $sourceIp = explode(":", $row[3])[0];
-                $connectedSince = date($this->_dateFormat, $row[5]);
-                
-                $aRet[$i]['ip'] = $ip; 
-                $aRet[$i]['user'] = $user; 
-                $aRet[$i]['sourceIp'] = $sourceIp;
-                $aRet[$i]['connectedSince'] = $connectedSince;
-                $i++;
+            if ( !file_exists($this->_statusFile) ) {
+                throw new Exception('Error: Status File not found.');
             }
             
-        }
+            $file = fopen($this->_statusFile, 'r');
 
-        return $aRet;
+            while (($line = fgetcsv($file)) !== false)
+            {
+                $data[] = $line;
+            }
+            
+            fclose($file);
+            
+            $aRet = array();
+            $i=0;
+            foreach ($data as $row) {
+                
+                if($row[0] == 'ROUTING_TABLE'){
+                    $ip = $row[1];
+                    $user = $row[2];
+                    $sourceIp = explode(":", $row[3])[0];
+                    $connectedSince = date($this->_dateFormat, $row[5]);
+                    
+                    $aRet[$i]['ip'] = $ip; 
+                    $aRet[$i]['user'] = $user; 
+                    $aRet[$i]['sourceIp'] = $sourceIp;
+                    $aRet[$i]['connectedSince'] = $connectedSince;
+                    $i++;
+                }
+                
+            }
+    
+            return $aRet;          
+        
+        } catch ( Exception $e ) {
+            die($e->getMessage());
+        } 
+        
     }
 
 
@@ -174,9 +189,8 @@ class ovpn
             $mail->Username   = $this->_smtpUser;                    
             $mail->Password   = $this->_smtpPassword;               
             $mail->Port       = 587;                                  
-        
             
-            $mail->setFrom($this->_smtpFrom, 'Mailer ');
+            $mail->setFrom($this->_smtpFrom);
 
             foreach ($this->_smtpAddress as $row) {
                 $mail->addAddress($row);     
