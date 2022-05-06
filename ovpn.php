@@ -175,7 +175,6 @@ class ovpn
 
     public function sendEmail($arrayData)
     {
-        echo $this->makeBody($arrayData);
 
         $mail = new PHPMailer(true);
 
@@ -189,7 +188,7 @@ class ovpn
             $mail->Password   = $this->_smtpPassword;               
             $mail->Port       = 587;                                  
             
-            $mail->setFrom($this->_smtpFrom);
+            $mail->setFrom($this->_smtpFrom,$this->_smtpFromName);
 
             foreach ($this->_smtpAddress as $row) {
                 $mail->addAddress($row);     
