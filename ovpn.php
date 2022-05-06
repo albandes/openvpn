@@ -130,7 +130,6 @@ class ovpn
 
         try
         {
-            $fileName = 'uploads/Team/img/'.$team_id.'.png';
             
             if ( !file_exists($this->_statusFile) ) {
                 throw new Exception('Error: Status File not found.');
