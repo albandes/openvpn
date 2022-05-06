@@ -94,7 +94,14 @@ class ovpn
      * @var mixed
      */
     private $_smtpAddress;
-
+    
+    /**
+     * _smtpSubject
+     *
+     * @var mixed
+     */
+    private $_smtpSubject;
+    
     public function __construct ($statusFile='',$timezone='',$dateFormat='')
     {
         $this->_statusFile = $statusFile;
@@ -152,7 +159,7 @@ class ovpn
     }
 
 
-    public function sendEmail($arrayData, $subject)
+    public function sendEmail($arrayData)
     {
         echo $this->makeBody($arrayData);
 
@@ -160,24 +167,24 @@ class ovpn
 
         try {
             //Server settings
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = $this->_smtpHost;                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = $this->_smtpUser;                     //SMTP username
-            $mail->Password   = $this->_smtpPassword;                               //SMTP password
-            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
+            $mail->isSMTP();                                           
+            $mail->Host       = $this->_smtpHost;                     
+            $mail->SMTPAuth   = true;                               
+            $mail->Username   = $this->_smtpUser;                    
+            $mail->Password   = $this->_smtpPassword;               
+            $mail->Port       = 587;                                  
         
-            //Recipients
-            $mail->setFrom($this->_smtpFrom, 'Mailer');
+            
+            $mail->setFrom($this->_smtpFrom, 'Mailer ');
 
             foreach ($this->_smtpAddress as $row) {
                 $mail->addAddress($row);     
             }
         
             //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = '=?UTF-8?B?'.base64_encode($subject).'?=';
+            $mail->isHTML(true);                                  
+            $mail->Subject = '=?UTF-8?B?'.base64_encode($this->_smtpSubject).'?=';
             $mail->Body    = $this->makeBody($arrayData);
                     
             $mail->send();
@@ -189,7 +196,7 @@ class ovpn
 
     public function makeBody($arrayData)
     {
-        $body = '<b>Active connections:</b><br>';
+        $body = '<b>Active connections:</b><br><br>';
         foreach ($arrayData as $row) {
             $body .= 'Ip: ' . $row['ip'] . '<br>';
             $body .= 'User: ' . $row['user'] . '<br>';
@@ -328,6 +335,20 @@ class ovpn
     public function set_smtpFromName($_smtpFromName)
     {
         $this->_smtpFromName = $_smtpFromName;
+
+        return $this;
+    }
+
+    /**
+     * Set _smtpSubject
+     *
+     * @param  mixed  $_smtpSubject  _smtpSubject
+     *
+     * @return  self
+     */ 
+    public function set_smtpSubject($_smtpSubject)
+    {
+        $this->_smtpSubject = $_smtpSubject;
 
         return $this;
     }
