@@ -261,7 +261,7 @@ class ovpn
             $body .= 'Connected Since: ' . $row['connectedSince'] . '<br><br>';
             
         } 
-        die($body);
+        
         return $body;   
     }
 
