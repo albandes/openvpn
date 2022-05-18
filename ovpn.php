@@ -252,7 +252,7 @@ class ovpn
     public function makeBody($arrayData)
     {
 
-        $body = '<b>Status file date and time: </b>' . $this->getStatusDateTime() . '<br><br>';
+        $body = '<br><br><b>Status file date and time: </b>' . $this->getStatusDateTime() . '<br><br>';
         $body .= '<b>Active connections:</b><br><br>';
         foreach ($arrayData as $row) {
             $body .= 'Ip: ' . $row['ip'] . '<br>';
