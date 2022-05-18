@@ -117,10 +117,9 @@ class ovpn
     }    
 
     /**
-     * Connect to equipment
-     * Creates the socket
+     * Get openvpn connection status
      *
-     * @return string|true Error message or true if connect
+     * @return array|string Array or Error message 
      *
      */
     public function getStatusData()
@@ -175,6 +174,47 @@ class ovpn
         
     }
 
+    /**
+     * Get openvpn connection status
+     *
+     * @return array|string Array or Error message 
+     *
+     */
+    
+    /**
+     * Get Status file date and time
+     *
+     * @return string Datetime ou error message 
+     */
+    public function getStatusDateTime()
+    {
+
+        date_default_timezone_set($this->_timezone);
+
+        try
+        {
+            
+            if ( !file_exists($this->_statusFile) ) {
+                throw new Exception('Error: Status File not found.');
+            }
+            
+            if ( !is_readable($this->_statusFile) ) {
+                throw new Exception('Error: Status File is not readable.');
+            }
+            
+            $arrayLines = file($this->_statusFile); 
+            $line =  $arrayLines[1];  //line 2
+            $dateTime = explode(',',$line);
+
+            return date($this->_dateFormat, $dateTime[2]);
+        
+        } catch ( Exception $e ) {
+
+            die($e->getMessage());
+
+        } 
+        
+    }
 
     public function sendEmail($arrayData)
     {
@@ -211,7 +251,9 @@ class ovpn
 
     public function makeBody($arrayData)
     {
-        $body = '<b>Active connections:</b><br><br>';
+
+        $body = '<b>Status file date and time: </b>' . $this->getStatusDateTime() . '<br><br>';
+        $body .= '<b>Active connections:</b><br><br>';
         foreach ($arrayData as $row) {
             $body .= 'Ip: ' . $row['ip'] . '<br>';
             $body .= 'User: ' . $row['user'] . '<br>';
@@ -219,6 +261,7 @@ class ovpn
             $body .= 'Connected Since: ' . $row['connectedSince'] . '<br><br>';
             
         } 
+        die($body);
         return $body;   
     }
 

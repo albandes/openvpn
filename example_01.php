@@ -25,4 +25,5 @@ array_push($address,'another.address@gmail.com');
 $ovpn->set_smtpAddress($address);
 
 $arrayRet = $ovpn->getStatusData();
+
 $ovpn->sendEmail($arrayRet,$subject);
