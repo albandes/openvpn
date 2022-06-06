@@ -150,13 +150,13 @@ class ovpn
             $aRet = array();
             $i=0;
             foreach ($data as $row) {
-                
+
                 if($row[0] == 'ROUTING_TABLE'){
                     $ip = $row[1];
                     $user = $row[2];
                     $sourceIp = explode(":", $row[3])[0];
                     $connectedSince = date($this->_dateFormat, $row[5]);
-                    
+                        
                     $aRet[$i]['ip'] = $ip; 
                     $aRet[$i]['user'] = $user; 
                     $aRet[$i]['sourceIp'] = $sourceIp;
@@ -165,7 +165,7 @@ class ovpn
                 }
                 
             }
-    
+            
             return $aRet;          
         
         } catch ( Exception $e ) {
