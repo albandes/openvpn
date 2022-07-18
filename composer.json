@@ -1,5 +1,10 @@
 {
+    "name": "albandes/openvpn",
+    "description": "A class to ",
     "require": {
+        "php": ">=7.*",
+        "another-vendor/package": "1.*",
         "phpmailer/phpmailer": "^6.6"
     }
 }
+
