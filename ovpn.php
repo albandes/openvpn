@@ -1,14 +1,15 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception; 
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\SMTP;
+//use PHPMailer\PHPMailer\Exception; 
 
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
 
+namespace Albandes;
 
 /**
- * ovpn
+ * openvpn
  *
  * Used to send e-mail with the data of active connections
  *
@@ -20,7 +21,7 @@ require 'vendor/autoload.php';
  * @license GNU License
  *
  */
-class ovpn
+class openvpn
 {
 
     /**
