@@ -5,7 +5,7 @@ Class that sends email with active connections on an Openvpn server.
 
 
 ## Examples 
-* example_01.php: Example program for use on a Linux server.
+* example.php: Example program for use on a Linux server.
  
 
 ## Contributing
