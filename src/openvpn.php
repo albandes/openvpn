@@ -1,14 +1,15 @@
 <?php
 
+namespace Albandes;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception; 
 
-require 'vendor/autoload.php';
 
+class Exception extends \Exception {}
 
 /**
- * ovpn
+ * openvpn
  *
  * Used to send e-mail with the data of active connections
  *
@@ -20,7 +21,7 @@ require 'vendor/autoload.php';
  * @license GNU License
  *
  */
-class ovpn
+class openvpn
 {
 
     /**
@@ -129,7 +130,6 @@ class ovpn
 
         try
         {
-            
             if ( !file_exists($this->_statusFile) ) {
                 throw new Exception('Error: Status File not found.');
             }
