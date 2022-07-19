@@ -1,6 +1,7 @@
 ## Specific ##
 vendor/*
 composer.lock
+openvpn-status.log
 ##############
 production.php
 
