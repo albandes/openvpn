@@ -1,7 +1,7 @@
 {
     "name": "albandes/openvpn",
     "description": "A class to ",
-    "license": "GNU",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Rogerio Albandes",
