@@ -1,12 +1,15 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
-require_once 'ovpn.php';
+
+use Albandes\openvpn;
+
+require("vendor/autoload.php");
 
 $statusFile='openvpn-status.log';
 $timezone='America/Sao_Paulo';
 $dateFormat='d/m/Y H:i:s';
 
-$ovpn = new ovpn($statusFile,$timezone,$dateFormat);
+$ovpn = new opevpn($statusFile,$timezone,$dateFormat);
 
 $ovpn->set_smtpHost('smtp.example.com');
 $ovpn->set_smtpUser('no-reply@example.com');
