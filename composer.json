@@ -1,7 +1,7 @@
 {
     "name": "albandes/openvpn",
     "description": "A class to ",
-    "license": "MIT",
+    "license": "GNU",
     "authors": [
         {
             "name": "Rogerio Albandes",
