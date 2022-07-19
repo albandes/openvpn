@@ -1,6 +1,9 @@
 {
     "name": "albandes/openvpn",
     "description": "A class to ",
+    "autoload": {
+        "psr-4": {"Albandes\\": "src/"}
+    },    
     "require": {
         "php": ">=5.4",
         "phpmailer/phpmailer": "^6.6"
