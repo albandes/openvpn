@@ -2,7 +2,7 @@
     "name": "albandes/openvpn",
     "description": "A class to ",
     "require": {
-        "php": ">=7.4",
+        "php": ">=5.4",
         "phpmailer/phpmailer": "^6.6"
     }
 }
