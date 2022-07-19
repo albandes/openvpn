@@ -19,6 +19,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Rogério Albandes** - *Initial work* - [albandes](https://github.com/albandes)
+* **Valentin Acosta** - *Initial work* - [valeLAcosta](https://github.com/valeLAcosta)
 
 See also the list of [contributors](https://github.com/albandes/openvpn/contributors) who participated in this project.
 
