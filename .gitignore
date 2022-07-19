@@ -1,6 +1,6 @@
 ## Specific ##
-vendor/
-
+vendor/*
+composer.lock
 ##############
 production.php
 
