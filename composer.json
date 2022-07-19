@@ -1,6 +1,20 @@
 {
     "name": "albandes/openvpn",
     "description": "A class to ",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rogerio Albandes",
+            "email": "rogerio.albandes@gmail.com"
+        },
+        {
+            "name": "Valentin Acosta",
+            "email": "vilaxr@gmail.com"
+        }
+    ],
+    "support": {
+          "email": "rogerio.albandes@gmail.com"
+    },    
     "autoload": {
         "psr-4": {"Albandes\\": "src/"}
     },    
