@@ -206,7 +206,7 @@ class openvpn
             $line =  $arrayLines[1];  //line 2
             $dateTime = explode(',',$line);
 
-            return date($this->_dateFormat, $dateTime[2]);
+            return date($this->_dateFormat, intval($dateTime[2]));
         
         } catch ( Exception $e ) {
 
